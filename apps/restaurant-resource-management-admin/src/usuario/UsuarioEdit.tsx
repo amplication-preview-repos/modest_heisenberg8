@@ -5,6 +5,7 @@ import {
   EditProps,
   TextInput,
   SelectInput,
+  DateTimeInput,
 } from "react-admin";
 
 export const UsuarioEdit = (props: EditProps): React.ReactElement => {
@@ -22,6 +23,15 @@ export const UsuarioEdit = (props: EditProps): React.ReactElement => {
           allowEmpty
           optionValue="value"
         />
+        <SelectInput
+          source="roles"
+          label="roles"
+          choices={[{ label: "Option 1", value: "Option1" }]}
+          optionText="label"
+          allowEmpty
+          optionValue="value"
+        />
+        <DateTimeInput label="lastLoginAt" source="lastLoginAt" />
       </SimpleForm>
     </Edit>
   );

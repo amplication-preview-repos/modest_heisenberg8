@@ -16,6 +16,8 @@ import { Type } from "class-transformer";
 import { IsOptional, IsEnum } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { EnumUsuarioRol } from "./EnumUsuarioRol";
+import { EnumUsuarioRoles } from "./EnumUsuarioRoles";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 
 @InputType()
 class UsuarioWhereInput {
@@ -73,6 +75,28 @@ class UsuarioWhereInput {
     nullable: true,
   })
   rol?: "Option1";
+
+  @ApiProperty({
+    required: false,
+    enum: EnumUsuarioRoles,
+  })
+  @IsEnum(EnumUsuarioRoles)
+  @IsOptional()
+  @Field(() => EnumUsuarioRoles, {
+    nullable: true,
+  })
+  roles?: "Option1";
+
+  @ApiProperty({
+    required: false,
+    type: DateTimeNullableFilter,
+  })
+  @Type(() => DateTimeNullableFilter)
+  @IsOptional()
+  @Field(() => DateTimeNullableFilter, {
+    nullable: true,
+  })
+  lastLoginAt?: DateTimeNullableFilter;
 }
 
 export { UsuarioWhereInput as UsuarioWhereInput };

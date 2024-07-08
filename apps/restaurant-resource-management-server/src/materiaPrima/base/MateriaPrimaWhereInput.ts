@@ -17,6 +17,7 @@ import { IsOptional, ValidateNested } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { RecetaListRelationFilter } from "../../receta/base/RecetaListRelationFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
 
 @InputType()
 class MateriaPrimaWhereInput {
@@ -97,6 +98,17 @@ class MateriaPrimaWhereInput {
     nullable: true,
   })
   recetas?: RecetaListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: IntNullableFilter,
+  })
+  @Type(() => IntNullableFilter)
+  @IsOptional()
+  @Field(() => IntNullableFilter, {
+    nullable: true,
+  })
+  stockMinimo?: IntNullableFilter;
 }
 
 export { MateriaPrimaWhereInput as MateriaPrimaWhereInput };

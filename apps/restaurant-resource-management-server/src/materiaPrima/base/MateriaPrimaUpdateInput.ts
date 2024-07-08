@@ -19,6 +19,7 @@ import {
   Min,
   Max,
   ValidateNested,
+  IsInt,
 } from "class-validator";
 import { RecetaUpdateManyWithoutMateriaPrimasInput } from "./RecetaUpdateManyWithoutMateriaPrimasInput";
 import { Type } from "class-transformer";
@@ -98,6 +99,19 @@ class MateriaPrimaUpdateInput {
     nullable: true,
   })
   recetas?: RecetaUpdateManyWithoutMateriaPrimasInput;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  stockMinimo?: number | null;
 }
 
 export { MateriaPrimaUpdateInput as MateriaPrimaUpdateInput };

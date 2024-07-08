@@ -8,4 +8,6 @@ export type UsuarioOrderByInput = {
   email?: SortOrder;
   password?: SortOrder;
   rol?: SortOrder;
+  roles?: SortOrder;
+  lastLoginAt?: SortOrder;
 };

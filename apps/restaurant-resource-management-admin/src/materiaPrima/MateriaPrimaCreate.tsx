@@ -29,6 +29,7 @@ export const MateriaPrimaCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={RecetaTitle} />
         </ReferenceArrayInput>
+        <NumberInput step={1} label="stockMinimo" source="stockMinimo" />
       </SimpleForm>
     </Create>
   );

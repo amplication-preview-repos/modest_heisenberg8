@@ -26,6 +26,7 @@ export const MateriaPrimaShow = (props: ShowProps): React.ReactElement => {
         <TextField label="cantidad" source="cantidad" />
         <TextField label="unidad" source="unidad" />
         <TextField label="costoUnitario" source="costoUnitario" />
+        <TextField label="stockMinimo" source="stockMinimo" />
         <ReferenceManyField
           reference="Receta"
           target="materiaPrimaId"

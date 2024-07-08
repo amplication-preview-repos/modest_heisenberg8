@@ -10,4 +10,5 @@ export type MateriaPrima = {
   unidad: string | null;
   costoUnitario: number | null;
   recetas?: Array<Receta>;
+  stockMinimo: number | null;
 };

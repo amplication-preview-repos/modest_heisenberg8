@@ -20,6 +20,7 @@ export const MateriaPrimaList = (props: ListProps): React.ReactElement => {
         <TextField label="cantidad" source="cantidad" />
         <TextField label="unidad" source="unidad" />
         <TextField label="costoUnitario" source="costoUnitario" />
+        <TextField label="stockMinimo" source="stockMinimo" />
       </Datagrid>
     </List>
   );

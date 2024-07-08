@@ -15,6 +15,7 @@ import {
   MateriaPrima as PrismaMateriaPrima,
   Receta as PrismaReceta,
 } from "@prisma/client";
+import { GetCostoActualInput } from "../GetCostoActualInput";
 
 export class MateriaPrimaServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -60,5 +61,8 @@ export class MateriaPrimaServiceBase {
         where: { id: parentId },
       })
       .recetas(args);
+  }
+  async GetCostoActual(args: GetCostoActualInput): Promise<number> {
+    throw new Error("Not implemented");
   }
 }

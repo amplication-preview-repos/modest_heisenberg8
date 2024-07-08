@@ -28,6 +28,7 @@ import { UpdateMateriaPrimaArgs } from "./UpdateMateriaPrimaArgs";
 import { DeleteMateriaPrimaArgs } from "./DeleteMateriaPrimaArgs";
 import { RecetaFindManyArgs } from "../../receta/base/RecetaFindManyArgs";
 import { Receta } from "../../receta/base/Receta";
+import { GetCostoActualInput } from "../GetCostoActualInput";
 import { MateriaPrimaService } from "../materiaPrima.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => MateriaPrima)
@@ -162,5 +163,13 @@ export class MateriaPrimaResolverBase {
     }
 
     return results;
+  }
+
+  @graphql.Query(() => Number)
+  async GetCostoActual(
+    @graphql.Args()
+    args: GetCostoActualInput
+  ): Promise<number> {
+    return this.service.GetCostoActual(args);
   }
 }

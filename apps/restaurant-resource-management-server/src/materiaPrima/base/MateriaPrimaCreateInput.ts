@@ -19,6 +19,7 @@ import {
   Min,
   Max,
   ValidateNested,
+  IsInt,
 } from "class-validator";
 import { RecetaCreateNestedManyWithoutMateriaPrimasInput } from "./RecetaCreateNestedManyWithoutMateriaPrimasInput";
 import { Type } from "class-transformer";
@@ -98,6 +99,19 @@ class MateriaPrimaCreateInput {
     nullable: true,
   })
   recetas?: RecetaCreateNestedManyWithoutMateriaPrimasInput;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  stockMinimo?: number | null;
 }
 
 export { MateriaPrimaCreateInput as MateriaPrimaCreateInput };

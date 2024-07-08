@@ -7,4 +7,5 @@ export type MateriaPrimaUpdateInput = {
   unidad?: string | null;
   costoUnitario?: number | null;
   recetas?: RecetaUpdateManyWithoutMateriaPrimasInput;
+  stockMinimo?: number | null;
 };

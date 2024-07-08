@@ -58,6 +58,8 @@ export class UsuarioControllerBase {
         email: true,
         password: true,
         rol: true,
+        roles: true,
+        lastLoginAt: true,
       },
     });
   }
@@ -86,6 +88,8 @@ export class UsuarioControllerBase {
         email: true,
         password: true,
         rol: true,
+        roles: true,
+        lastLoginAt: true,
       },
     });
   }
@@ -115,6 +119,8 @@ export class UsuarioControllerBase {
         email: true,
         password: true,
         rol: true,
+        roles: true,
+        lastLoginAt: true,
       },
     });
     if (result === null) {
@@ -153,6 +159,8 @@ export class UsuarioControllerBase {
           email: true,
           password: true,
           rol: true,
+          roles: true,
+          lastLoginAt: true,
         },
       });
     } catch (error) {
@@ -190,6 +198,8 @@ export class UsuarioControllerBase {
           email: true,
           password: true,
           rol: true,
+          roles: true,
+          lastLoginAt: true,
         },
       });
     } catch (error) {

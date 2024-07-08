@@ -24,6 +24,7 @@ const CREATE_INPUT = {
   nombre: "exampleNombre",
   email: "exampleEmail",
   password: "examplePassword",
+  lastLoginAt: new Date(),
 };
 const CREATE_RESULT = {
   id: "exampleId",
@@ -32,6 +33,7 @@ const CREATE_RESULT = {
   nombre: "exampleNombre",
   email: "exampleEmail",
   password: "examplePassword",
+  lastLoginAt: new Date(),
 };
 const FIND_MANY_RESULT = [
   {
@@ -41,6 +43,7 @@ const FIND_MANY_RESULT = [
     nombre: "exampleNombre",
     email: "exampleEmail",
     password: "examplePassword",
+    lastLoginAt: new Date(),
   },
 ];
 const FIND_ONE_RESULT = {
@@ -50,6 +53,7 @@ const FIND_ONE_RESULT = {
   nombre: "exampleNombre",
   email: "exampleEmail",
   password: "examplePassword",
+  lastLoginAt: new Date(),
 };
 
 const service = {
@@ -136,6 +140,7 @@ describe("Usuario", () => {
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+        lastLoginAt: CREATE_RESULT.lastLoginAt.toISOString(),
       });
   });
 
@@ -148,6 +153,7 @@ describe("Usuario", () => {
           ...FIND_MANY_RESULT[0],
           createdAt: FIND_MANY_RESULT[0].createdAt.toISOString(),
           updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
+          lastLoginAt: FIND_MANY_RESULT[0].lastLoginAt.toISOString(),
         },
       ]);
   });
@@ -171,6 +177,7 @@ describe("Usuario", () => {
         ...FIND_ONE_RESULT,
         createdAt: FIND_ONE_RESULT.createdAt.toISOString(),
         updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
+        lastLoginAt: FIND_ONE_RESULT.lastLoginAt.toISOString(),
       });
   });
 
@@ -184,6 +191,7 @@ describe("Usuario", () => {
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
+        lastLoginAt: CREATE_RESULT.lastLoginAt.toISOString(),
       })
       .then(function () {
         agent

@@ -21,6 +21,7 @@ import {
   Min,
   Max,
   ValidateNested,
+  IsInt,
 } from "class-validator";
 
 import { Type } from "class-transformer";
@@ -122,6 +123,19 @@ class MateriaPrima {
   @Type(() => Receta)
   @IsOptional()
   recetas?: Array<Receta>;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Min(-999999999)
+  @Max(999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  stockMinimo!: number | null;
 }
 
 export { MateriaPrima as MateriaPrima };

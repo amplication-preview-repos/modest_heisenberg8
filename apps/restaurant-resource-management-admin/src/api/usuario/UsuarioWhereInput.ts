@@ -1,5 +1,6 @@
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 
 export type UsuarioWhereInput = {
   id?: StringFilter;
@@ -7,4 +8,6 @@ export type UsuarioWhereInput = {
   email?: StringNullableFilter;
   password?: StringNullableFilter;
   rol?: "Option1";
+  roles?: "Option1";
+  lastLoginAt?: DateTimeNullableFilter;
 };

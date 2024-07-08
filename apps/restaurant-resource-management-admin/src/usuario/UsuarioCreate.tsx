@@ -5,6 +5,7 @@ import {
   CreateProps,
   TextInput,
   SelectInput,
+  DateTimeInput,
 } from "react-admin";
 
 export const UsuarioCreate = (props: CreateProps): React.ReactElement => {
@@ -22,6 +23,15 @@ export const UsuarioCreate = (props: CreateProps): React.ReactElement => {
           allowEmpty
           optionValue="value"
         />
+        <SelectInput
+          source="roles"
+          label="roles"
+          choices={[{ label: "Option 1", value: "Option1" }]}
+          optionText="label"
+          allowEmpty
+          optionValue="value"
+        />
+        <DateTimeInput label="lastLoginAt" source="lastLoginAt" />
       </SimpleForm>
     </Create>
   );

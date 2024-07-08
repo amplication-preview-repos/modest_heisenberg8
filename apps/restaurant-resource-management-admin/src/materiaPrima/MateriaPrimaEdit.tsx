@@ -29,6 +29,7 @@ export const MateriaPrimaEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={RecetaTitle} />
         </ReferenceArrayInput>
+        <NumberInput step={1} label="stockMinimo" source="stockMinimo" />
       </SimpleForm>
     </Edit>
   );

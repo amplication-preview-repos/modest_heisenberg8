@@ -18,6 +18,8 @@ export const UsuarioShow = (props: ShowProps): React.ReactElement => {
         <TextField label="email" source="email" />
         <TextField label="password" source="password" />
         <TextField label="rol" source="rol" />
+        <TextField label="roles" source="roles" />
+        <TextField label="lastLoginAt" source="lastLoginAt" />
       </SimpleShowLayout>
     </Show>
   );

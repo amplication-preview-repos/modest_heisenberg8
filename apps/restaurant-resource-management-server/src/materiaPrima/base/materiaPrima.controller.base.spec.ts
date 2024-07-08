@@ -26,6 +26,7 @@ const CREATE_INPUT = {
   cantidad: 42.42,
   unidad: "exampleUnidad",
   costoUnitario: 42.42,
+  stockMinimo: 42,
 };
 const CREATE_RESULT = {
   id: "exampleId",
@@ -36,6 +37,7 @@ const CREATE_RESULT = {
   cantidad: 42.42,
   unidad: "exampleUnidad",
   costoUnitario: 42.42,
+  stockMinimo: 42,
 };
 const FIND_MANY_RESULT = [
   {
@@ -47,6 +49,7 @@ const FIND_MANY_RESULT = [
     cantidad: 42.42,
     unidad: "exampleUnidad",
     costoUnitario: 42.42,
+    stockMinimo: 42,
   },
 ];
 const FIND_ONE_RESULT = {
@@ -58,6 +61,7 @@ const FIND_ONE_RESULT = {
   cantidad: 42.42,
   unidad: "exampleUnidad",
   costoUnitario: 42.42,
+  stockMinimo: 42,
 };
 
 const service = {

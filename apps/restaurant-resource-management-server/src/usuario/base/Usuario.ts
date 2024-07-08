@@ -20,6 +20,7 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumUsuarioRol } from "./EnumUsuarioRol";
+import { EnumUsuarioRoles } from "./EnumUsuarioRoles";
 
 @ObjectType()
 class Usuario {
@@ -92,6 +93,28 @@ class Usuario {
     nullable: true,
   })
   rol?: "Option1" | null;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumUsuarioRoles,
+  })
+  @IsEnum(EnumUsuarioRoles)
+  @IsOptional()
+  @Field(() => EnumUsuarioRoles, {
+    nullable: true,
+  })
+  roles?: "Option1" | null;
+
+  @ApiProperty({
+    required: false,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  @Field(() => Date, {
+    nullable: true,
+  })
+  lastLoginAt!: Date | null;
 }
 
 export { Usuario as Usuario };

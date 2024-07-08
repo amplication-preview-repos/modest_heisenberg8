@@ -2,6 +2,7 @@ import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { FloatNullableFilter } from "../../util/FloatNullableFilter";
 import { RecetaListRelationFilter } from "../receta/RecetaListRelationFilter";
+import { IntNullableFilter } from "../../util/IntNullableFilter";
 
 export type MateriaPrimaWhereInput = {
   id?: StringFilter;
@@ -11,4 +12,5 @@ export type MateriaPrimaWhereInput = {
   unidad?: StringNullableFilter;
   costoUnitario?: FloatNullableFilter;
   recetas?: RecetaListRelationFilter;
+  stockMinimo?: IntNullableFilter;
 };

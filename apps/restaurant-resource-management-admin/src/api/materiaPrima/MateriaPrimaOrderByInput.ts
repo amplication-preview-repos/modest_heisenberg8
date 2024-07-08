@@ -9,4 +9,5 @@ export type MateriaPrimaOrderByInput = {
   cantidad?: SortOrder;
   unidad?: SortOrder;
   costoUnitario?: SortOrder;
+  stockMinimo?: SortOrder;
 };

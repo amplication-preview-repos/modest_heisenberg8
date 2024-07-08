@@ -1,5 +1,5 @@
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DB_URL")
 }
 
@@ -17,6 +17,7 @@ model MateriaPrima {
   unidad        String?
   costoUnitario Float?
   recetas       Receta[]
+  stockMinimo   Int?
 }
 
 model Producto {
@@ -65,13 +66,15 @@ model Receta {
 }
 
 model Usuario {
-  id        String          @id @default(cuid())
-  createdAt DateTime        @default(now())
-  updatedAt DateTime        @updatedAt
-  nombre    String?
-  email     String?
-  password  String?
-  rol       EnumUsuarioRol?
+  id          String            @id @default(cuid())
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  nombre      String?
+  email       String?
+  password    String?
+  rol         EnumUsuarioRol?
+  roles       EnumUsuarioRoles?
+  lastLoginAt DateTime?
 }
 
 model User {
@@ -91,5 +94,9 @@ enum EnumCostoTipoDeCosto {
 }
 
 enum EnumUsuarioRol {
+  Option1
+}
+
+enum EnumUsuarioRoles {
   Option1
 }

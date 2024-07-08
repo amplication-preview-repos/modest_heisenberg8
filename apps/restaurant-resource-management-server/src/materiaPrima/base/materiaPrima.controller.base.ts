@@ -29,6 +29,7 @@ import { MateriaPrimaUpdateInput } from "./MateriaPrimaUpdateInput";
 import { RecetaFindManyArgs } from "../../receta/base/RecetaFindManyArgs";
 import { Receta } from "../../receta/base/Receta";
 import { RecetaWhereUniqueInput } from "../../receta/base/RecetaWhereUniqueInput";
+import { GetCostoActualInput } from "../GetCostoActualInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -62,6 +63,7 @@ export class MateriaPrimaControllerBase {
         cantidad: true,
         unidad: true,
         costoUnitario: true,
+        stockMinimo: true,
       },
     });
   }
@@ -91,6 +93,7 @@ export class MateriaPrimaControllerBase {
         cantidad: true,
         unidad: true,
         costoUnitario: true,
+        stockMinimo: true,
       },
     });
   }
@@ -121,6 +124,7 @@ export class MateriaPrimaControllerBase {
         cantidad: true,
         unidad: true,
         costoUnitario: true,
+        stockMinimo: true,
       },
     });
     if (result === null) {
@@ -160,6 +164,7 @@ export class MateriaPrimaControllerBase {
           cantidad: true,
           unidad: true,
           costoUnitario: true,
+          stockMinimo: true,
         },
       });
     } catch (error) {
@@ -198,6 +203,7 @@ export class MateriaPrimaControllerBase {
           cantidad: true,
           unidad: true,
           costoUnitario: true,
+          stockMinimo: true,
         },
       });
     } catch (error) {
@@ -316,5 +322,22 @@ export class MateriaPrimaControllerBase {
       data,
       select: { id: true },
     });
+  }
+
+  @common.Get("/costos/actual")
+  @swagger.ApiOkResponse({
+    type: Number,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async GetCostoActual(
+    @common.Body()
+    body: GetCostoActualInput
+  ): Promise<number> {
+    return this.service.GetCostoActual(body);
   }
 }
