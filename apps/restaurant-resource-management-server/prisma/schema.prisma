@@ -1,0 +1,95 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model MateriaPrima {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  nombre        String?
+  descripcion   String?
+  cantidad      Float?
+  unidad        String?
+  costoUnitario Float?
+  recetas       Receta[]
+}
+
+model Producto {
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  nombre      String?
+  descripcion String?
+  precioVenta Float?
+  costos      Costo[]
+  ventas      Venta[]
+  recetas     Receta[]
+}
+
+model Costo {
+  id          String                @id @default(cuid())
+  createdAt   DateTime              @default(now())
+  updatedAt   DateTime              @updatedAt
+  monto       Float?
+  fecha       DateTime?
+  tipoDeCosto EnumCostoTipoDeCosto?
+  producto    Producto?             @relation(fields: [productoId], references: [id])
+  productoId  String?
+}
+
+model Venta {
+  id         String    @id @default(cuid())
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  fecha      DateTime?
+  monto      Float?
+  cantidad   Float?
+  producto   Producto? @relation(fields: [productoId], references: [id])
+  productoId String?
+}
+
+model Receta {
+  id                String        @id @default(cuid())
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+  cantidadNecesaria Float?
+  producto          Producto?     @relation(fields: [productoId], references: [id])
+  productoId        String?
+  materiaPrima      MateriaPrima? @relation(fields: [materiaPrimaId], references: [id])
+  materiaPrimaId    String?
+}
+
+model Usuario {
+  id        String          @id @default(cuid())
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+  nombre    String?
+  email     String?
+  password  String?
+  rol       EnumUsuarioRol?
+}
+
+model User {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  firstName String?
+  lastName  String?
+  username  String   @unique
+  email     String?  @unique
+  password  String
+  roles     Json
+}
+
+enum EnumCostoTipoDeCosto {
+  Option1
+}
+
+enum EnumUsuarioRol {
+  Option1
+}
